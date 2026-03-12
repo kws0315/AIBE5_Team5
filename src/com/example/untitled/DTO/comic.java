@@ -2,7 +2,7 @@ package com.example.untitled.DTO;
 
 import java.sql.Date;
 
-public class comicDTO {
+public class comic {
     private int comicId;
     private String title;
     private String author;
@@ -10,9 +10,9 @@ public class comicDTO {
     private int series;
     private Date comicRegDate;
 
-    public comicDTO() {}
+    public comic() {}
 
-    public comicDTO(int comicId, String title, String author, String description, int series, Date comicRegDate) {
+    public comic(int comicId, String title, String author, String description, int series, Date comicRegDate) {
         this.comicId = comicId;
         this.title = title;
         this.author = author;

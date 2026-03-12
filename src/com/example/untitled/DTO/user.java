@@ -2,14 +2,14 @@ package com.example.untitled.DTO;
 
 import java.sql.Date;
 
-public class userDTO {
+public class user {
     private int userId;
     private String name;
     private Date userRegDate;
 
-    public userDTO() {}
+    public user() {}
 
-    public userDTO(int userId, String name, Date userRegDate) {
+    public user(int userId, String name, Date userRegDate) {
         this.userId = userId;
         this.name = name;
         this.userRegDate = userRegDate;

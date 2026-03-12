@@ -52,17 +52,41 @@
 
 ## 📂 디렉토리 구조
 
-```bash
-📦 Comic Rental CLI
- ┣ 📂 src
- ┣ 📂 docs                          # 프로젝트를 위한 각종 문서폴더
- ┃ ┃ ┗ 📜 *.png                    
- ┃ ┃ ┣ 📜 Header.tsx                # 상단 네비게이션 헤더 컴포넌트
- ┃ ┃ ┣ 📜 TravelModal.tsx           # 여행 계획 관련 모달 컴포넌트
- ┃ ┃ ┣ 📜 SharePlanModal.tsx        # 여행 계획 공유 모달
- ┃ ┃ ┗ 📜 ReviewModal.tsx           # 여행 후기 작성/수정 모달 컴포넌트
- ┃ ┣ 📂 pages
- ┗ 📜 README.md            
+```Markdown
+src/
+├─ Main.java                 [프로그램 실행 시작점]
+│
+├─ config/                   [공통 설정 및 유틸리티]
+│  └─ DBconnection.java      [DB 연결(Connection) 및 자원 해제 전담]
+│
+├─ view/                     [화면 출력 및 사용자 입력(Scanner) 전담]
+│  ├─ comicView.java         [만화책 관리 메뉴 View]
+│  ├─ userView.java          [회원 관리 메뉴 View]
+│  └─ mainView.java          [메인(첫) 메뉴 View]
+│
+├─ controller/               [사용자 요청을 받아 Service로 전달하는 제어 담당]
+│  ├─ comicController.java   [만화책 흐름 제어]
+│  ├─ userController.java    [회원 흐름 제어]
+│  └─ rentalController.java  [대여/반납 흐름 제어]
+│
+├─ service/                  [핵심 비즈니스 로직 처리]
+│  ├─ comicService.java      [만화책 인터페이스]
+│  ├─ userService.java       [회원 인터페이스]
+│  ├─ rentalService.java     [대여 인터페이스]
+│  └─ impl/                        [실제 비즈니스 로직 처리 클래스]
+│     ├─ ComicServiceImpl.java     [만화책 실제 로직 구현]
+│     ├─ userServiceImpl.java      [회원 실제 로직 구현]
+│     └─ RentalServiceImpl.java    [대여 실제 로직 구현]
+│
+├─ DAO/                      [Data Access Object] - MySQL 쿼리 실행 전담
+│  ├─ comicDAO.java          [만화책 DB CRUD 처리]
+│  ├─ userDAO.java           [회원 DB CRUD 처리]
+│  └─ rentalDAO.java         [대여 DB CRUD 처리]
+│
+└─ DTO/                      [Data Transfer Object] - 데이터를 담아 전달하는 상자
+   ├─ comic.java             [만화책 테이블 데이터]
+   ├─ user.java              [회원 테이블 데이터]
+   └─ rental.java            [대여 테이블 데이터]
 ```
 ---
 

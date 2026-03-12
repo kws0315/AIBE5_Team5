@@ -1,4 +1,4 @@
 package com.example.untitled.service;
 
-public class rentalService {
+public interface rentalService {
 }

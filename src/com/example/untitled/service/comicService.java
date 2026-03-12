@@ -1,4 +1,7 @@
 package com.example.untitled.service;
 
-public class comicService {
+import java.util.List;
+
+public interface comicService {
+
 }

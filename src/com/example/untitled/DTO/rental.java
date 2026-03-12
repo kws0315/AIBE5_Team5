@@ -2,16 +2,16 @@ package com.example.untitled.DTO;
 
 import java.sql.Date;
 
-public class rentalDTO {
+public class rental {
     private int rentalId;
     private int userId;
     private int comicId;
     private Date rentalDate;
     private Date returnDate;
 
-    public rentalDTO() {}
+    public rental() {}
 
-    public rentalDTO(int rentalId, int userId, int comicId, Date rentalDate, Date returnDate) {
+    public rental(int rentalId, int userId, int comicId, Date rentalDate, Date returnDate) {
         this.rentalId = rentalId;
         this.userId = userId;
         this.comicId = comicId;
