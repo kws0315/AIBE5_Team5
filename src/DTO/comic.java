@@ -8,7 +8,7 @@ public class comic {
     private String author;
     private String description;
     private int series;
-    private Date comicRegDate;
+    private Date comic_regDate;
 
     public comic() {}
 
@@ -18,8 +18,17 @@ public class comic {
         this.author = author;
         this.description = description;
         this.series = series;
-        this.comicRegDate = comicRegDate;
+        this.comic_regDate = comicRegDate;
     }
+
+    public comic(String title, String author, String description, int series, Date comicRegDate) {
+        this.title = title;
+        this.author = author;
+        this.description = description;
+        this.series = series;
+        this.comic_regDate = comicRegDate;
+    }
+
     public int getComicId() {
         return comicId;
     }
@@ -53,11 +62,11 @@ public class comic {
     }
 
     public Date getComicRegDate() {
-        return comicRegDate;
+        return comic_regDate;
     }
 
     public void setComicRegDate(Date comicRegDate) {
-        this.comicRegDate = comicRegDate;
+        this.comic_regDate = comicRegDate;
     }
 
     public String getTitle() {

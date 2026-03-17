@@ -144,4 +144,73 @@ git merge origin/feature
 git push origin [작업브랜치]
 ```
 
----
+## 작업영역별 메소드 정리
+
+### **(1) View**
+Main에서 이동할 떄, 목록보여주기
+```
+1. comicView.comicMenu()
+    - 만화책 대여/삭제/상세페이지 출력
+    
+2. userView.userMenu()
+    - 유저 생성/삭제
+    
+3. rentalView.rentalMenu()
+    - 만화책 대여/반납/대여목록
+    - 만화책 대여/반납할 때는 1.회원ID, 2.만화책ID 입력
+```
+
+====================================================
+
+### **(2) Contoller**
+view에서 보여야할 내용을 Service로 옮기는 역할
+```
+1. comicController
+    - void createComic(Scanner sc): 만화책 생성
+    - void deleteComic(int comicId): 만회책 삭제
+    - comic getComicDetail(int comicId): 만화책 상세내용 보기
+    - List<comic> getComicList(): 만화책 목록보기
+    
+2. userController
+    - void createUser(Scanner sc): 유저 생성
+    - void deleteUser(): 유저 삭제
+    - List<user> getUserList(): 유저 목록 보기
+    
+3. rentalController
+    - void rentalComic(int userId, int comicId): 만화책 대여
+    - void returnComic(int rentalId): 만화책 반납
+    - List<rental> getRentalList(int userId): 개인별 대여 목록
+```
+
+### **(3) Service**
+Interface를 이용해서 기능들 간에 결합도 감소시키고 비즈니스로직 처리
+```
+1. comicService
+    - void createComic(String title, String author, String description, int series): 만화책 생성
+    - void deleteComic(int comicId): 만화책 삭제하기
+    - comic getComicDetail(int comicId): 만화책 상세내용 가져오기(만화 설명)
+    - List<comic> getComicList(): 만화책 목록 가져오기
+    
+2. userService
+    
+    
+3. rentalService
+   
+```
+
+
+### **(4) DataBase**
+DTO, DAO 처리
+```
+1. comicDAO
+    - void createComic(comic c)
+    - List<comic> getComicList()
+    - comic getComicDetail(int comicId)
+    - void deleteComic(int comicId)
+    
+2. userDAO
+    
+    
+3. rentalDAO
+   
+```
