@@ -38,7 +38,7 @@ public class Main {
                 System.out.println("잘못된 입력입니다.");
                 continue;
             }
-        }
+        } // While 끝부분
 
     }
 }

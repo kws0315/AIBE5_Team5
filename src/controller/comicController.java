@@ -3,7 +3,6 @@ import DTO.comic;
 import service.comicService;
 import service.impl.comicServiceImpl;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.Scanner;
 

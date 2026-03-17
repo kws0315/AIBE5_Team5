@@ -28,3 +28,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### DB 데이터 ###
+src/config/db.properties

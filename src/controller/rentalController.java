@@ -11,6 +11,7 @@ public class rentalController {
 
     public rentalController() {
         // rentalService - new rentalServiceImpl();
+        // 추후에 추가하면 활성화하시오
     }
 
     // 만화채 대여
