@@ -17,8 +17,7 @@ public class comicDAO {
     public void createComic(comic c) throws SQLException {
         String sql = "INSERT INTO comic (title, author, description, series, comic_regDate) VALUES (?, ?, ?, ?, ?)";
 
-        try (PreparedStatement pstmt =
-                     conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             pstmt.setString(1, c.getTitle());
             pstmt.setString(2, c.getAuthor());
@@ -56,7 +55,7 @@ public class comicDAO {
                         rs.getInt("comic_id"),
                         rs.getString("title"),
                         rs.getString("author"),
-                        rs.getString("description"),
+                        rs.getString("description"), // 만화책 목록 조회할 때는 사용하지 않기
                         rs.getInt("series"),
                         rs.getDate("comic_regDate")
                 );
@@ -79,9 +78,26 @@ public class comicDAO {
         }
     }
 
-    public comic getComicDetail(int comicId) {
+    public comic getComicDetail(int comicId) throws SQLException {
         String sql = "SELECT * FROM comic WHERE comic_id = ?";
+        comic c = null;
 
-        return null;
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, comicId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    c = new comic(
+                            rs.getInt("comic_id"),
+                            rs.getString("title"),
+                            rs.getString("author"),
+                            rs.getString("description"),
+                            rs.getInt("series"),
+                            rs.getDate("comic_regDate")
+                    );
+                }
+            }
+        }
+        return c;
     }
+
 } // 클래스 끝

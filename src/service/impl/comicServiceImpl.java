@@ -42,6 +42,6 @@ public class comicServiceImpl implements comicService {
 
     @Override
     public comic getComicDetail(int comicId) throws Exception {
-        return null;
+        return dao.getComicDetail(comicId);
     }
 }

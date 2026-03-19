@@ -13,10 +13,12 @@ public class DBconnection {
 
     static {
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
             Properties props = new Properties();
             InputStream is = DBconnection.class
                     .getClassLoader()
-                    .getResourceAsStream("db.properties");
+                    .getResourceAsStream("config/db.properties");
 
             if (is == null) {
                 throw new RuntimeException("db.properties 파일을 찾을 수 없습니다.");
@@ -24,9 +26,9 @@ public class DBconnection {
 
             props.load(is);
 
-            URL = props.getProperty("db.URL");
-            USER = props.getProperty("db.USER");
-            PASSWORD = props.getProperty("db.PASSWORD");
+            URL = props.getProperty("db.url");
+            USER = props.getProperty("db.user");
+            PASSWORD = props.getProperty("db.password");
 
         } catch (Exception e) {
             throw new RuntimeException(e);

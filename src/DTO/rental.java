@@ -6,6 +6,9 @@ public class rental {
     private int rentalId;
     private int userId;
     private int comicId;
+    private String title;
+    private String author;
+    private int series;
     private Date rentalDate;
     private Date returnDate;
 
@@ -43,6 +46,30 @@ public class rental {
         this.comicId = comicId;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public int getSeries() {
+        return series;
+    }
+
+    public void setSeries(int series) {
+        this.series = series;
+    }
+
     public Date getRentalDate() {
         return rentalDate;
     }
@@ -57,5 +84,13 @@ public class rental {
 
     public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "rentalId=%d, title=%s, author=%s, series=%d, rentalDate=%s, returnDate=%s",
+                rentalId, title, author, series, rentalDate, returnDate
+        );
     }
 }

@@ -2,6 +2,7 @@ package view;
 
 import DAO.comicDAO;
 import DTO.comic;
+import com.sun.tools.javac.Main;
 import config.DBconnection;
 
 import java.sql.Connection;
@@ -57,25 +58,31 @@ public class comicView {
                     comic comic = new comic(title, author, description, series, comicRegDate);
                     comicDAO.createComic(comic);
                 } else if (menu == 2) {
-                    list  = comicDAO.getComicList();
+                    System.out.print("조회할 id : ");
+                    int comicId = sc.nextInt();
+                    sc.nextLine();
 
-                    System.out.println("========== 만화책 목록 ==========");
-
-                    for (comic c : list) {
+                    comic c = comicDAO.getComicDetail(comicId);
+                    if (c == null) {
+                        System.out.println("해당 ID의 만화가 없습니다.");
+                    } else {
+                        System.out.println(" < " + c.getTitle() + "의 상세내용 > ");
                         System.out.println(
-                                "ID : " + c.getComicId() +
+                                "[ ID : " + c.getComicId() +
                                         " | 제목 : " + c.getTitle() +
                                         " | 작가 : " + c.getAuthor() +
+                                        " | 설명 : " + c.getDescription() +
                                         " | 권수 : " + c.getSeries() +
-                                        " | 등록일 : " + c.getComicRegDate()
+                                        " | 등록일 : " + c.getComicRegDate() +
+                                        " ]\n"
                         );
                     }
                 } else if (menu == 3) {
-                    System.out.print("제목 : ");
+                    System.out.print("id : ");
                     int comic_id = sc.nextInt();
                     comicDAO.deleteComic(comic_id);
                 } else if (menu == 0) {
-                    System.out.println("프로그램 종료");
+                    System.out.println("뒤로가기");
                     break;
                 } else {
                     System.out.println("잘못된 입력입니다.");
@@ -86,6 +93,5 @@ public class comicView {
             e.printStackTrace();
             System.out.println("MySQL 연결 실패...");
         }
-        sc.close();
     }
 }
