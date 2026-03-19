@@ -1,14 +1,14 @@
 import DAO.comicDAO;
 import DTO.comic;
 import config.DBconnection;
+
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Date;
 import java.util.List;
 import java.util.Scanner;
 import view.comicView;
-import view.userView;
 import view.rentalView;
+import view.userView;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,6 +16,7 @@ public class Main {
         comicView comicView = new comicView();
         userView userView = new userView();
         rentalView rentalView = new rentalView();
+        boolean isComicListShownAtEntry = false;
 
         while(true) {
             System.out.println("========== 만화책 대여 시스템 ==========");
