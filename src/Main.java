@@ -1,13 +1,45 @@
-//TIP 코드를 <b>실행</b>하려면 <shortcut actionId="Run"/>을(를) 누르거나
-// 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
-void main() {
-    //TIP 캐럿을 강조 표시된 텍스트에 놓고 <shortcut actionId="ShowIntentionActions"/>을(를) 누르면
-    // IntelliJ IDEA이(가) 수정을 제안하는 것을 확인할 수 있습니다.
-    IO.println(String.format("Hello and welcome!"));
+import DAO.comicDAO;
+import DTO.comic;
+import config.DBconnection;
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP <shortcut actionId="Debug"/>을(를) 눌러 코드 디버그를 시작하세요. 1개의 <icon src="AllIcons.Debugger.Db_set_breakpoint"/> 중단점을 설정해 드렸습니다
-        // 언제든 <shortcut actionId="ToggleLineBreakpoint"/>을(를) 눌러 중단점을 더 추가할 수 있습니다.
-        IO.println("i = " + i);
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Scanner;
+import view.comicView;
+import view.rentalView;
+import view.userView;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        comicView comicView = new comicView();
+        userView userView = new userView();
+        rentalView rentalView = new rentalView();
+        boolean isComicListShownAtEntry = false;
+
+        while(true) {
+            System.out.println("========== 만화책 대여 시스템 ==========");
+            System.out.println("1. 만화책 목록");
+            System.out.println("2. 회원 목록");
+            System.out.println("3. 대여 목록");
+            System.out.println("0. 종료");
+            System.out.print("메뉴 선택 : ");
+
+            int menu = sc.nextInt();
+            if (menu == 1) {
+                comicView.comicMenu();
+            } else if (menu == 2) {
+                userView.userMenu();
+            } else if (menu == 3) {
+                rentalView.rentalMenu();
+            } else if (menu == 0) {
+                break;
+            } else {
+                System.out.println("잘못된 입력입니다.");
+                continue;
+            }
+        } // While 끝부분
+
     }
 }
