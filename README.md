@@ -12,7 +12,7 @@
 
 ## 📌 프로젝트 기획서
 
-- **Figma:** https://www.figma.com/design/iSbu7heQg9bfYgt5UUo2LL/AIBE5-3%EC%B0%A8-5%ED%8C%80_%EC%82%BC%EC%82%BC%EC%98%A4%EC%98%A4?node-id=15-69&t=XZRfJcyegtUA8yhR-0
+- [**Figma**](https://www.figma.com/design/iSbu7heQg9bfYgt5UUo2LL/AIBE5-3%EC%B0%A8-5%ED%8C%80_%EC%82%BC%EC%82%BC%EC%98%A4%EC%98%A4?node-id=15-69&t=XZRfJcyegtUA8yhR-0) 
 
 ---
 
